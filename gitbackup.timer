@@ -1,5 +1,5 @@
 [Unit]
-Description=Run gitbackup script daily at 9:00 AM
+Description=Run gitbackup script daily at 08:55 AM
 Requires=gitbackup.service
 
 [Timer]
