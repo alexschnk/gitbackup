@@ -1,18 +1,21 @@
 #!/bin/bash
 
-obsidian_path=/home/syncthing/data/Obsidian
-kp_path=/home/syncthing/data/Passwords
+obsidian_path=/home/$USER/data/Obsidian
+kp_path=/home/$USER/data/Passwords
+repo_path=/home/$USER/gitbackup/repo
+gpg_keyname=data
 
+rm -rfv "$repo_path"/**
 
-tar --zstd -cf obsidian.zst $obsidian_path
-gpg --encrypt --recipient data obsidian.zst
-rm obsidian.zst
+tar --zstd -cf "$repo_path"/obsidian.zst "$obsidian_path" 
+gpg --encrypt --recipient "$gpg_keyname" "$repo_path"/obsidian.zst --yes
+rm "$repo_path"/obsidian.zst
 
-tar --zstd -cf kp.zst $kp_path 
-gpg --encrypt --recipient data kp.zst 
-rm kp.zst
+tar --zstd -cf "$repo_path"/kp.zst "$kp_path" 
+gpg --encrypt --recipient "$gpg_keyname" "$repo_path"/kp.zst --yes
+rm "$repo_path"/kp.zst
 
+cd "$repo_path"
 git add .
 git commit -m "$(date)"
 git push -u origin main
-
