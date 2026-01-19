@@ -1,6 +1,6 @@
 This script uses Git to back up files to cloud code hosting platforms. All files are encrypted using a public GPG key. Since encryption requires only the public key, this script is ideal for running on home NAS devices—the private key needed for decryption stays in a secure location (hopefully yours). For example, i am using Ybikey 5 for GPG storage. You can access your backed-up files without entering credentials for the code hosting service, which offers added convenience.
 
-By default, the script backs up files daily at 09:00. 
+By default, the script backs up files daily at 08:55. 
 
 Setup requires:
 
