@@ -6,7 +6,6 @@ After=network.target
 [Service]
 Type=oneshot
 User=username
-WorkingDirectory=/path/to/repository
 ExecStart=/path/to/script
 
 [Install]
