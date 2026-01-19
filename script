@@ -4,10 +4,12 @@ obsidian_path=/home/syncthing/data/Obsidian
 kp_path=/home/syncthing/data/Passwords
 
 
-tar --zstd -cf obsidian.zst $obsidian_path | gpg --encrypt --recipient data obsidian.zst
+tar --zstd -cf obsidian.zst $obsidian_path
+gpg --encrypt --recipient data obsidian.zst
 rm obsidian.zst
 
-tar --zstd -cf kp.zst $kp_path | gpg --encrypt --recipient data kp.zst 
+tar --zstd -cf kp.zst $kp_path 
+gpg --encrypt --recipient data kp.zst 
 rm kp.zst
 
 git add .

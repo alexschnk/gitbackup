@@ -1,0 +1,13 @@
+[Unit]
+Description=Script for backuping by git
+After=network.target
+
+
+[Service]
+Type=oneshot
+User=username
+WorkingDirectory=/path/to/repository
+ExecStart=/path/to/script
+
+[Install]
+WantedBy=multi-user.target
